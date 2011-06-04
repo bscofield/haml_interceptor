@@ -3,11 +3,14 @@ GEM
   specs:
     git (1.2.5)
     haml (3.1.1)
+    hpricot (0.8.4)
     jeweler (1.6.2)
       bundler (~> 1.0)
       git (>= 1.2.5)
       rake
     rack (1.3.0)
+    rack-test (0.6.0)
+      rack (>= 1.0)
     rake (0.8.7)
     rcov (0.9.9)
 
@@ -17,7 +20,9 @@ PLATFORMS
 DEPENDENCIES
   bundler (~> 1.0.0)
   haml (~> 3.1.1)
+  hpricot (~> 0.8.4)
   jeweler (~> 1.6.2)
   rack (~> 1.3.0)
+  rack-test (~> 0.6.0)
   rake (~> 0.8.7)
   rcov

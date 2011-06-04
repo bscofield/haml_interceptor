@@ -13,12 +13,23 @@ class TestHamlInterceptor < Test::Unit::TestCase
     assert_equal last_response.body, '<html><head><title>Boneshaker</title></head><body><p>Hello!</p></body></html>'
   end
 
-  def test_it_should_capture_js_responses
+  def test_it_should_capture_js_responses_by_content_type
     get '/ajax'
     assert_equal last_response.body, <<HAML
 %h1 Boneshaker
 #author
   %p by Cherie Priest
+HAML
+  end
+
+  def test_it_should_capture_js_responses_by_requested_header
+    get '/', {}, {'HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest'}
+    assert_equal last_response.body, <<HAML
+%html
+  %head
+    %title Boneshaker
+  %body
+    %p Hello!
 HAML
   end
 end

@@ -7,7 +7,11 @@ class HamlInterceptor
 
   def call(env)
     status, headers, resp = @app.call(env)
-    body = resp.body.respond_to?(:join) ? resp.body.join : resp.body
+    body = if resp.respond_to?(:body)
+      resp.body.respond_to?(:join) ? resp.body.join : resp.body
+    else
+      resp
+    end
 
     if js_response?(env, headers)
       body = parse(body)

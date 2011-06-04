@@ -38,4 +38,10 @@ HAML
     assert_equal JSON.parse('{"name":"Boneshaker\n", "markup":"%h1 Boneshaker\n#author\n  %p by Cherie Priest\n"}'),
       JSON.parse(last_response.body)
   end
+
+  def test_it_should_handle_empty_bodies
+    assert_nothing_raised do
+      get '/empty'
+    end
+  end
 end

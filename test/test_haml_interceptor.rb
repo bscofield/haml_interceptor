@@ -10,7 +10,7 @@ class TestHamlInterceptor < Test::Unit::TestCase
 
   def test_it_should_ignore_html_responses
     get '/'
-    assert_equal last_response.body, '<html><head><title>Boneshaker</title></head><body><p>Hello!</p></body></html>'
+    assert_equal '<html><head><title>Boneshaker</title></head><body><p>by Cherie Priest</p></body></html>', last_response.body
   end
 
   def test_it_should_capture_js_responses_by_content_type
@@ -29,7 +29,13 @@ HAML
   %head
     %title Boneshaker
   %body
-    %p Hello!
+    %p by Cherie Priest
 HAML
+  end
+
+  def test_it_should_descend_into_json_responses
+    get '/json'
+    assert_equal JSON.parse('{"name":"Boneshaker\n", "markup":"%h1 Boneshaker\n#author\n  %p by Cherie Priest\n"}'),
+      JSON.parse(last_response.body)
   end
 end

@@ -8,7 +8,7 @@ gem 'rake', '>= 0.8.7'
 
 gem 'haml', '>= 3.1.0'
 gem 'hpricot', '>= 0.8.4'
-
+gem 'json_pure', '>= 1.5.0'
 
 # Add dependencies to develop your gem here.
 # Include everything needed to run rake, tests, features, etc.

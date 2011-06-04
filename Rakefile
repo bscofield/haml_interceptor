@@ -17,8 +17,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "haml_interceptor"
   gem.homepage = "http://github.com/bscofield/haml_interceptor"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{Rack middleware to process HTML into Haml for slimmer JS responses}
+  gem.description = %Q{haml_interceptor is a Rack middleware designed to intercept JS responses from a web application and re-process them from HTML to Haml, resulting in a smaller package sent down the wire to the client.}
   gem.email = "git@turrean.com"
   gem.authors = ["Ben Scofield"]
   # dependencies defined in Gemfile

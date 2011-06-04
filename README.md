@@ -6,6 +6,11 @@ Of course, you'll need to pair this with haml.js on the client-side to re-expand
 
 ## Usage
 
+    # Gemfile
+
+    gem 'haml_inspector', '~> 0.1.0'
+&nbsp;
+
     # config.ru
 
     require 'haml_inspector'
